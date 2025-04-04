@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "home": "Home",
+    "projects": "Projects",
+    "info": "Info",
+    "about": "About Me",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "nacode",
+    "subtitle": "Frontend Developer & Graphic Designer",
+    "downloadCV": "Download CV",
+    "viewProjects": "View Projects",
+    "certificados": "Certificates"
+  },
+  "projects": {
+    "title": "Projects",
+    "project1": {
+      "title": "Astral Studio",
+      "description": "Website for a studio of developers and graphic designers. Modern and eye-catching approach."
+    },
+    "project2": {
+      "title": "Login Dashboard",
+      "description": "Login site project for an admin or client panel."
+    },
+    "project3": {
+      "title": "Neptune Host",
+      "description": "Project for a hosting company. Interactive site for getting different plans."
+    }
+  },
+  "skills": {
+    "title": "Technologies & Tools",
+    "development": "Development",
+    "design": "Design",
+    "systems": "Systems"
+  },
+  "about": {
+    "title": "About Me",
+    "role": "Frontend Developer & Graphic Designer",
+    "description": "I'm a passionate frontend developer and graphic designer focused on creating unique and engaging digital experiences. My blend of technical and creative skills allows me to approach projects from a comprehensive perspective, ensuring results that not only work well but also look exceptional."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project in mind? I'd love to collaborate with you!",
+    "sendEmail": "Send Email"
+  }
+}

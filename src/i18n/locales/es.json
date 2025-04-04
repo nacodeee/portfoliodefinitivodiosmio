@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "home": "Inicio",
+    "projects": "Proyectos",
+    "info": "Información",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "nacode",
+    "subtitle": "Desarrollador Frontend & Diseñador Gráfico",
+    "downloadCV": "Descargar CV",
+    "viewProjects": "Ver Proyectos",
+    "certificados": "Certificados"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "project1": {
+      "title": "Astral Studio",
+      "description": "Sitio web para un estudio de desarrolladores y diseñadores gráficos. Enfoque moderno y llamativo."
+    },
+    "project2": {
+      "title": "Login Dashboard",
+      "description": "Proyecto de sitio de inicio de sesión para un panel administrativo o de cliente."
+    },
+    "project3": {
+      "title": "Neptune Host",
+      "description": "Proyecto para una empresa de Hosting. Sitio interactivo para la obtención de distintos planes."
+    }
+  },
+  "skills": {
+    "title": "Tecnologías y Herramientas",
+    "development": "Desarrollo",
+    "design": "Diseño",
+    "systems": "Sistemas"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "role": "Desarrollador Frontend & Diseñador Gráfico",
+    "description": "Soy un apasionado desarrollador frontend y diseñador gráfico con un enfoque en crear experiencias digitales únicas y atractivas. Mi combinación de habilidades técnicas y creativas me permite abordar los proyectos desde una perspectiva integral, asegurando resultados que no solo funcionan bien, sino que también lucen excepcionales."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Tienes un proyecto en mente? ¡Me encantaría colaborar contigo!",
+    "sendEmail": "Enviar Email"
+  }
+}

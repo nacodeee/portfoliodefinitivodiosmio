@@ -1,0 +1,47 @@
+{
+  "sections": {
+    "home": "Inici",
+    "projects": "Projectes",
+    "info": "Informació",
+    "about": "Sobre mi",
+    "contact": "Contacte"
+  },
+  "hero": {
+    "title": "nacode",
+    "subtitle": "Desenvolupador Frontend i Dissenyador Gràfic",
+    "downloadCV": "Descarregar CV",
+    "viewProjects": "Veure Projectes",
+    "certificados": "Certificats"
+  },
+  "projects": {
+    "title": "Projectes",
+    "project1": {
+      "title": "Astral Studio",
+      "description": "Lloc web per a un estudi de desenvolupadors i dissenyadors gràfics. Enfocament modern i cridaner."
+    },
+    "project2": {
+      "title": "Login Dashboard",
+      "description": "Projecte de pàgina d'inici de sessió per a un panell administratiu o de client."
+    },
+    "project3": {
+      "title": "Neptune Host",
+      "description": "Projecte per a una empresa de hosting. Lloc interactiu per a obtindre diferents plans."
+    }
+  },
+  "skills": {
+    "title": "Tecnologies i Eines",
+    "development": "Desenvolupament",
+    "design": "Disseny",
+    "systems": "Sistemes"
+  },
+  "about": {
+    "title": "Sobre mi",
+    "role": "Desenvolupador Frontend i Dissenyador Gràfic",
+    "description": "Sóc un apassionat desenvolupador frontend i dissenyador gràfic amb un enfocament en la creació d'experiències digitals úniques i atractives. La meua combinació d'habilitats tècniques i creatives em permet abordar els projectes des d'una perspectiva integral, assegurant resultats que no sols funcionen bé, sinó que també llueixen de manera excepcional."
+  },
+  "contact": {
+    "title": "Contacte",
+    "subtitle": "Tens un projecte en ment? M'encantaria col·laborar amb tu!",
+    "sendEmail": "Enviar correu"
+  }
+}
