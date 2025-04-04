@@ -85,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
         >
           <a
             href="/pics/cv.pdf"
-            download
+            target="_blank"
             className="inline-flex items-center gap-2 bg-[#0099ff] text-white px-8 py-3 rounded-full hover:bg-[#0077cc] transition-colors"
           >
             <Download size={20} />
