@@ -50,10 +50,13 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
     setIsLangMenuOpen(false);
   };
 
+  // Define el color base (ajústalo según el color principal de tu página)
+  const baseColor = '#09f'; // Ejemplo de un gris claro
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-white/30'
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -61,7 +64,12 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold text-[#0099ff]"
+            className="text-2xl font-bold"
+            style={{
+              background: `linear-gradient(to bottom, #09f, ${baseColor})`,
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+            }}
           >
             nacode
           </motion.div>
@@ -78,7 +86,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                 {section.name}
               </button>
             ))}
-            
+
             {/* Language Selector */}
             <div className="relative">
               <button
@@ -92,7 +100,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                 />
                 <span>{currentLang.name}</span>
               </button>
-              
+
               {isLangMenuOpen && (
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
@@ -147,7 +155,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                 {section.name}
               </button>
             ))}
-            
+
             {/* Mobile Language Selector */}
             <div className="pt-4 border-t border-gray-200">
               {languages.map((lang) => (
