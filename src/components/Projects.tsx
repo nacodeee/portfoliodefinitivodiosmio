@@ -97,7 +97,7 @@ export const Projects: React.FC = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-gray-100 text-sm rounded-full text-gray-600"
+                      className="px-3 py-1 bg-[#0099ff79] text-sm rounded-full text-gray-600"
                     >
                       {tag}
                     </span>

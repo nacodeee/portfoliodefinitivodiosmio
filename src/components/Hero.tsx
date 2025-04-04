@@ -12,14 +12,60 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-white to-gray-50">
+      {/* Efecto de onda más suave */}
+      <svg className="absolute w-0 h-0">
+        <filter id="wave">
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.006 0.02"
+            numOctaves="2"
+            result="turbulence"
+          >
+            <animate 
+              attributeName="baseFrequency"
+              values="0.006 0.02; 0.008 0.03; 0.006 0.02"
+              dur="5s"
+              repeatCount="indefinite"
+            />
+          </feTurbulence>
+          <feDisplacementMap
+            in2="turbulence"
+            in="SourceGraphic"
+            scale="6"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+
       <div className="container mx-auto px-6 py-24 text-center">
+        {/* Texto con gradiente animado y efecto de onda */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-[#0099ff] to-[#0077cc]"
+          className="text-6xl md:text-8xl font-bold mb-6 relative"
         >
-          {t('hero.title')}
+          <motion.span
+            className="bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(90deg, #005fa3, #0099ff, #005fa3)",
+              backgroundSize: "300% 300%",
+              WebkitBackgroundClip: "text",
+              display: "inline-block",
+              filter: "url(#wave)",
+            }}
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            nacode
+          </motion.span>
         </motion.h1>
 
         <motion.div

@@ -1,33 +1,48 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Code, Palette, Terminal } from 'lucide-react';
+import { Code, Palette, Terminal, Database, FolderGit2, FileCode2, Cpu, Paintbrush2, Image as ImageIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const skills = {
-  development: [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'React',
-    'TypeScript',
-    'NodeJS',
-    'Python',
-    'Git',
-    'GitHub'
-  ],
-  design: [
-    'Photoshop',
-    'Illustrator',
-    'Lightroom'
-  ],
-  systems: [
-    'Linux Terminal',
-    'MySQL',
-    'MongoDB',
-    'Redis'
-  ]
-};
+const skills = [
+  {
+    category: 'skills.development',
+    icon: <Code size={20} className="text-[#0099ff]" />,
+    items: [
+      { name: 'HTML', icon: <FileCode2 size={18} /> },
+      { name: 'CSS', icon: <FileCode2 size={18} /> },
+      { name: 'JavaScript', icon: <FileCode2 size={18} /> },
+      { name: 'React', icon: <React.Fragment />, customIcon: <Cpu size={18} /> }, // Usamos Fragment y customIcon
+      { name: 'TypeScript', icon: <FileCode2 size={18} /> },
+      { name: 'NodeJS', icon: <Cpu size={18} /> },
+      { name: 'Python', icon: <FileCode2 size={18} /> },
+      { name: 'Git', icon: <FolderGit2 size={18} /> },
+      { name: 'GitHub', icon: <GithubIcon size={18} /> }, // Reutilizamos GithubIcon
+    ],
+  },
+  {
+    category: 'skills.systems',
+    icon: <Terminal size={20} className="text-[#0099ff]" />,
+    items: [
+      { name: 'Linux Terminal', icon: <Terminal size={18} /> },
+      { name: 'MySQL', icon: <Database size={18} /> },
+      { name: 'MongoDB', icon: <Database size={18} /> },
+      { name: 'Redis', icon: <Database size={18} /> },
+    ],
+  },
+  {
+    category: 'skills.design',
+    icon: <Palette size={20} className="text-[#0099ff]" />,
+    items: [
+      { name: 'Photoshop', icon: <ImageIcon size={18} /> },
+      { name: 'Illustrator', icon: <Paintbrush2 size={18} /> },
+      { name: 'Lightroom', icon: <ImageIcon size={18} /> },
+    ],
+  },
+];
+
+// Importamos el icono de Github desde lucide-react
+import { Github as GithubIcon } from 'lucide-react';
 
 export const Skills: React.FC = () => {
   const { t } = useTranslation();
@@ -37,86 +52,43 @@ export const Skills: React.FC = () => {
   });
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           ref={ref}
-          className="text-4xl font-bold text-center mb-16"
+          className="text-3xl font-bold text-center mb-10"
         >
           {t('skills.title')}
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="p-6 rounded-xl bg-gray-50"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <Code size={24} className="text-[#0099ff]" />
-              <h3 className="text-xl font-semibold">{t('skills.development')}</h3>
-            </div>
-            <ul className="space-y-3">
-              {skills.development.map((skill, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-2 text-gray-700"
-                >
-                  <span className="w-2 h-2 bg-[#0099ff] rounded-full" />
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.4 }}
-            className="p-6 rounded-xl bg-gray-50"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <Palette size={24} className="text-[#0099ff]" />
-              <h3 className="text-xl font-semibold">{t('skills.design')}</h3>
-            </div>
-            <ul className="space-y-3">
-              {skills.design.map((skill, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-2 text-gray-700"
-                >
-                  <span className="w-2 h-2 bg-[#0099ff] rounded-full" />
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6 }}
-            className="p-6 rounded-xl bg-gray-50"
-          >
-            <div className="flex items-center gap-4 mb-6">
-              <Terminal size={24} className="text-[#0099ff]" />
-              <h3 className="text-xl font-semibold">{t('skills.systems')}</h3>
-            </div>
-            <ul className="space-y-3">
-              {skills.systems.map((skill, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-2 text-gray-700"
-                >
-                  <span className="w-2 h-2 bg-[#0099ff] rounded-full" />
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((group, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.2 + index * 0.2 }}
+              className="p-4 rounded-xl bg-gray-100 hover:bg-[#F0F0F0] transition-colors flex flex-col"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                {group.icon}
+                <h3 className="text-lg font-semibold">{t(group.category)}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((skill, skillIndex) => (
+                  <div
+                    key={skillIndex}
+                    className="bg-white rounded-md shadow-sm px-3 py-2 flex items-center gap-2 text-gray-700 text-sm"
+                  >
+                    {skill.customIcon ? skill.customIcon : skill.icon} {/* Renderizamos el customIcon si existe */}
+                    <span>{skill.name}</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

@@ -16,7 +16,7 @@ export const Cursor: React.FC = () => {
     <div
       className="pointer-events-none fixed inset-0 z-50"
       style={{
-        background: `radial-gradient(600px at ${position.x}px ${position.y}px, rgba(0, 153, 255, 0.05), transparent 80%)`
+        background: `radial-gradient(300px at ${position.x}px ${position.y}px, rgba(0, 153, 255, 0.24), transparent 80%)`
       }}
     />
   );
