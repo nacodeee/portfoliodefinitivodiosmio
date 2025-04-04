@@ -1,9 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, Brush } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { FaBehance } from 'react-icons/fa6';
 
 export const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -57,7 +56,7 @@ export const Contact: React.FC = () => {
                 rel="noopener noreferrer"
                 className="p-3 border-2 border-gray-200 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors"
               >
-                <FaBehance size={24} />
+                <Brush size={24} />
               </a>
             </div>
           </div>

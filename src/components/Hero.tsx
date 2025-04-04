@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, ChevronDown } from 'lucide-react';
+import { Download, ChevronDown, File } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { CgAttachment } from 'react-icons/cg';
 
 interface HeroProps {
   onScrollToProjects: () => void;
@@ -51,7 +50,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
             target="_blank"
             className="inline-flex items-center gap-2 border-2 border-[#0099ff] text-[#0099ff] px-8 py-3 rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
           >
-            <CgAttachment size={20} />
+            <File size={20} />
             {t('hero.certificados')}
           </a>
         </motion.div>
