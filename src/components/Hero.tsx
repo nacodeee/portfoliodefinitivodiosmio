@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
             {t('hero.downloadCV')}
           </a>
           <a
-            href="./certificados.pdf"
+            href="/pics/certificados.pdf"
             target="_blank"
             className="inline-flex items-center gap-2 border-2 border-[#0099ff] text-[#0099ff] px-8 py-3 rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
           >
