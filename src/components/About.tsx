@@ -34,7 +34,7 @@ export const About: React.FC = () => {
             {t('about.description')}
           </p>
           <a
-            href="/pics/cv.pdf"
+            href="https://drive.google.com/file/d/11E_SEythMhmm0Z9zLgBrG5WZepxgjXaH/view?usp=sharing"
             target="_blank"
             className="inline-flex items-center gap-2 bg-[#0099ff] text-white px-8 py-3 rounded-full hover:bg-[#0077cc] transition-colors"
           >

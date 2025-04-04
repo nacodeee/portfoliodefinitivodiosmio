@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
           className="flex flex-col md:flex-row gap-6 justify-center"
         >
           <a
-            href="/pics/cv.pdf"
+            href="https://drive.google.com/file/d/11E_SEythMhmm0Z9zLgBrG5WZepxgjXaH/view?usp=sharing"
             target="_blank"
             className="inline-flex items-center gap-2 bg-[#0099ff] text-white px-8 py-3 rounded-full hover:bg-[#0077cc] transition-colors"
           >
@@ -92,7 +92,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
             {t('hero.downloadCV')}
           </a>
           <a
-            href="/pics/certificados.pdf"
+            href="https://drive.google.com/file/d/196bKOuld-535R3MumLam6KVpDOj7DA6e/view?usp=sharing"
             target="_blank"
             className="inline-flex items-center gap-2 border-2 border-[#0099ff] text-[#0099ff] px-8 py-3 rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
           >
