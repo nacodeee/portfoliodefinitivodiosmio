@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { GrAttachment } from 'react-icons/gr';
 
 export const About: React.FC = () => {
   const { t } = useTranslation();
@@ -35,7 +34,7 @@ export const About: React.FC = () => {
             {t('about.description')}
           </p>
           <a
-            href="./cv.pdf"
+            href="/pics/cv.pdf"
             download
             className="inline-flex items-center gap-2 bg-[#0099ff] text-white px-8 py-3 rounded-full hover:bg-[#0077cc] transition-colors"
           >

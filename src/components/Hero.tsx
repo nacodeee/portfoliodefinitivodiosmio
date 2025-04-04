@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
           className="flex flex-col md:flex-row gap-6 justify-center"
         >
           <a
-            href="./cv.pdf"
+            href="/pics/cv.pdf"
             download
             className="inline-flex items-center gap-2 bg-[#0099ff] text-white px-8 py-3 rounded-full hover:bg-[#0077cc] transition-colors"
           >
