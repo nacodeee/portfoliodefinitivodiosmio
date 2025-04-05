@@ -26,6 +26,18 @@
     "project3": {
       "title": "Neptune Host",
       "description": "Proyecto para una empresa de Hosting. Sitio interactivo para la obtención de distintos planes."
+    },
+    "project4": {
+      "title": "Identidad Visual",
+      "description": "Creación de marca digital para una empresa de servicios. Presentación de mockups, logo y tarjetas de contacto."
+    },
+    "project5": {
+      "title": "Flyer Publicitario",
+      "description": "Diseño de 'posteo' para Instagram y ser utilizado como Flyer para promocionar en redes."
+    },
+    "project6": {
+      "title": "Banners",
+      "description": "Creación y diseño de 'banners' para servidores de juegos, empresas, redes sociales y demás."
     }
   },
   "skills": {

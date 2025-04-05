@@ -17,19 +17,31 @@
     "title": "Projects",
     "project1": {
       "title": "Astral Studio",
-      "description": "Website for a studio of developers and graphic designers. Modern and eye-catching approach."
+      "description": "Website for a developer and graphic design studio. Modern and eye-catching approach."
     },
     "project2": {
       "title": "Login Dashboard",
-      "description": "Login site project for an admin or client panel."
+      "description": "Login page project for an admin or client dashboard."
     },
     "project3": {
       "title": "Neptune Host",
-      "description": "Project for a hosting company. Interactive site for getting different plans."
+      "description": "Project for a Hosting company. Interactive site to explore different plans."
+    },
+    "project4": {
+      "title": "Visual Identity",
+      "description": "Digital brand creation for a service-based business. Includes mockups, logo, and business cards."
+    },
+    "project5": {
+      "title": "Promotional Flyer",
+      "description": "Instagram post design also used as a flyer for social media promotion."
+    },
+    "project6": {
+      "title": "Banners",
+      "description": "Creation and design of banners for game servers, businesses, social media, and more."
     }
   },
   "skills": {
-    "title": "Technologies & Tools",
+    "title": "Technologies and Tools",
     "development": "Development",
     "design": "Design",
     "systems": "Systems"
@@ -37,11 +49,11 @@
   "about": {
     "title": "About Me",
     "role": "Frontend Developer & Graphic Designer",
-    "description": "I'm a passionate frontend developer and graphic designer focused on creating unique and engaging digital experiences. My blend of technical and creative skills allows me to approach projects from a comprehensive perspective, ensuring results that not only work well but also look exceptional."
+    "description": "I’m a passionate frontend developer and graphic designer focused on creating unique and engaging digital experiences. My blend of technical and creative skills allows me to approach projects from a comprehensive perspective, ensuring results that not only work well but also look great."
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Have a project in mind? I'd love to collaborate with you!",
+    "subtitle": "Do you have a project in mind? I’d love to collaborate with you!",
     "sendEmail": "Send Email"
   }
 }

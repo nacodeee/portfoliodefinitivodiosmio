@@ -8,7 +8,7 @@
   },
   "hero": {
     "title": "nacode",
-    "subtitle": "Desenvolupador Frontend i Dissenyador Gràfic",
+    "subtitle": "Desenvolupador Frontend & Dissenyador Gràfic",
     "downloadCV": "Descarregar CV",
     "viewProjects": "Veure Projectes",
     "certificados": "Certificats"
@@ -17,15 +17,27 @@
     "title": "Projectes",
     "project1": {
       "title": "Astral Studio",
-      "description": "Lloc web per a un estudi de desenvolupadors i dissenyadors gràfics. Enfocament modern i cridaner."
+      "description": "Lloc web per a un estudi de desenvolupadors i dissenyadors gràfics. Enfocament modern i atractiu."
     },
     "project2": {
-      "title": "Login Dashboard",
+      "title": "Panell d'Inici de Sessió",
       "description": "Projecte de pàgina d'inici de sessió per a un panell administratiu o de client."
     },
     "project3": {
       "title": "Neptune Host",
-      "description": "Projecte per a una empresa de hosting. Lloc interactiu per a obtindre diferents plans."
+      "description": "Projecte per a una empresa d'allotjament. Lloc interactiu per obtenir diferents plans."
+    },
+    "project4": {
+      "title": "Identitat Visual",
+      "description": "Creació de marca digital per a una empresa de serveis. Presentació de mockups, logotip i targetes de visita."
+    },
+    "project5": {
+      "title": "Flyer Publicitari",
+      "description": "Disseny de publicació per a Instagram i ús com a flyer per promocionar en xarxes."
+    },
+    "project6": {
+      "title": "Bàners",
+      "description": "Creació i disseny de bàners per a servidors de jocs, empreses, xarxes socials i més."
     }
   },
   "skills": {
@@ -36,12 +48,12 @@
   },
   "about": {
     "title": "Sobre mi",
-    "role": "Desenvolupador Frontend i Dissenyador Gràfic",
-    "description": "Sóc un apassionat desenvolupador frontend i dissenyador gràfic amb un enfocament en la creació d'experiències digitals úniques i atractives. La meua combinació d'habilitats tècniques i creatives em permet abordar els projectes des d'una perspectiva integral, assegurant resultats que no sols funcionen bé, sinó que també llueixen de manera excepcional."
+    "role": "Desenvolupador Frontend & Dissenyador Gràfic",
+    "description": "Sóc un desenvolupador frontend i dissenyador gràfic apassionat amb un enfocament en crear experiències digitals úniques i atractives. La meua combinació d'habilitats tècniques i creatives em permet abordar els projectes des d'una perspectiva integral, assegurant resultats que no sols funcionen bé, sinó que també llueixen espectaculars."
   },
   "contact": {
     "title": "Contacte",
     "subtitle": "Tens un projecte en ment? M'encantaria col·laborar amb tu!",
-    "sendEmail": "Enviar correu"
+    "sendEmail": "Enviar Correu"
   }
 }

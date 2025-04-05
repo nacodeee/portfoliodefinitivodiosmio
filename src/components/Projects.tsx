@@ -8,7 +8,7 @@ const projects = [
   {
     titleKey: 'projects.project1.title',
     descriptionKey: 'projects.project1.description',
-    image: 'https://i.imgur.com/zsY2IIg.png',
+    image: 'https://i.imgur.com/g06TCl6.png',
     tags: ['React', 'TypeScript', 'Tailwind'],
     links: {
       live: 'https://astralstudio.vercel.app/',
@@ -18,7 +18,7 @@ const projects = [
   {
     titleKey: 'projects.project2.title',
     descriptionKey: 'projects.project2.description',
-    image: 'https://i.imgur.com/MU9bFgi.png',
+    image: 'https://i.imgur.com/lm3VISN.png',
     tags: ['HTML', 'CSS', 'JavaScript'],
     links: {
       live: 'https://nacodelogin.vercel.app/',
@@ -28,11 +28,38 @@ const projects = [
   {
     titleKey: 'projects.project3.title',
     descriptionKey: 'projects.project3.description',
-    image: 'https://i.imgur.com/tVqmjJm.png',
+    image: 'https://i.imgur.com/AIBbFa2.png',
     tags: ['HTML', 'CSS', 'JavaScript'],
     links: {
       live: 'https://neptunehost.vercel.app/',
       github: 'https://github.com/nacodeee/neptunehost'
+    }
+  },
+  {
+    titleKey: 'projects.project4.title',
+    descriptionKey: 'projects.project4.description',
+    image: 'https://i.imgur.com/0158sbY.png',
+    tags: ['Photoshop', 'Illustrator'],
+    links: {
+      live: 'https://be.net/nacode'
+    }
+  },
+  {
+    titleKey: 'projects.project5.title',
+    descriptionKey: 'projects.project5.description',
+    image: 'https://i.imgur.com/dLFoSxs.png',
+    tags: ['Photoshop'],
+    links: {
+      live: 'https://www.behance.net/gallery/212674323/Flyers-(SAMP-Events)'
+    }
+  },
+  {
+    titleKey: 'projects.project6.title',
+    descriptionKey: 'projects.project6.description',
+    image: 'https://i.imgur.com/n1OX4yA.png',
+    tags: ['Photoshop'],
+    links: {
+      live: 'https://www.behance.net/gallery/212672551/Minecraft-servers-logos-banners'
     }
   },
 ];
@@ -72,22 +99,26 @@ export const Projects: React.FC = () => {
                   className="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a
-                    href={project.links.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
-                  >
-                    <ExternalLink size={20} />
-                  </a>
-                  <a
-                    href={project.links.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
-                  >
-                    <Github size={20} />
-                  </a>
+                  {project.links.live && (
+                    <a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
+                    >
+                      <Github size={20} />
+                    </a>
+                  )}
                 </div>
               </div>
               <div className="p-6">
