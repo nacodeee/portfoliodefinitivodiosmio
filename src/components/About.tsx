@@ -1,5 +1,5 @@
 // about.tsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Download } from 'lucide-react';
@@ -11,29 +11,9 @@ export const About: React.FC = () => {
         triggerOnce: true,
         threshold: 0.1
     });
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    useEffect(() => {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setIsDarkMode(prefersDark);
-
-        const handleChange = (event: MediaQueryListEvent) => {
-            setIsDarkMode(event.matches);
-        };
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleChange);
-
-        return () => {
-            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleChange);
-        };
-    }, []);
-
-    const sectionBgClass = isDarkMode ? 'bg-gray-900' : 'bg-gray-50';
-    const textColorPrimary = isDarkMode ? 'text-white' : 'text-gray-800';
-    const textColorSecondary = isDarkMode ? (isDarkMode ? 'text-gray-400' : 'text-gray-600') : 'text-gray-600';
-    const descriptionTextColor = isDarkMode ? (isDarkMode ? 'text-gray-300' : 'text-gray-700') : 'text-gray-700';
 
     return (
-        <section className={`py-24 ${sectionBgClass} transition-colors duration-300 select-none`}>
+        <section className={`py-24 bg-gray-900 transition-colors duration-300 select-none`}>
             <div className="container mx-auto px-6">
                 <motion.div
                     ref={ref}
@@ -41,17 +21,17 @@ export const About: React.FC = () => {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     className="max-w-3xl mx-auto text-center"
                 >
-                    <h2 className={`text-4xl font-bold mb-8 ${textColorPrimary} transition-colors duration-300 select-none`}>{t('about.title')}</h2>
+                    <h2 className={`text-4xl font-bold mb-8 text-white transition-colors duration-300 select-none`}>{t('about.title')}</h2>
                     <div className="mb-8 select-none">
                         <img
                             src="https://i.imgur.com/tQZvLQZ.png"
                             alt="Ignacio Gimenez Novo"
                             className="w-48 h-48 rounded-full mx-auto mb-6 object-cover"
                         />
-                        <h3 className={`text-2xl font-semibold mb-2 ${textColorPrimary} transition-colors duration-300 select-none`}>Ignacio Gimenez Novo</h3>
-                        <p className={`mb-6 ${textColorSecondary} transition-colors duration-300 select-none`}>{t('about.role')}</p>
+                        <h3 className={`text-2xl font-semibold mb-2 text-white transition-colors duration-300 select-none`}>Ignacio Gimenez Novo</h3>
+                        <p className={`mb-6 text-gray-400 transition-colors duration-300 select-none`}>{t('about.role')}</p>
                     </div>
-                    <p className={`mb-8 leading-relaxed select-text ${descriptionTextColor} transition-colors duration-300`}>
+                    <p className={`mb-8 leading-relaxed select-text text-gray-300 transition-colors duration-300`}>
                         {t('about.description')}
                     </p>
                     <a

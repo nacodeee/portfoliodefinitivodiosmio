@@ -1,5 +1,5 @@
 // contact.tsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, Github, Linkedin } from 'lucide-react';
@@ -12,30 +12,10 @@ export const Contact: React.FC = () => {
         triggerOnce: true,
         threshold: 0.1
     });
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    useEffect(() => {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setIsDarkMode(prefersDark);
-
-        const handleChange = (event: MediaQueryListEvent) => {
-            setIsDarkMode(event.matches);
-        };
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleChange);
-
-        return () => {
-            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleChange);
-        };
-    }, []);
-
-    const sectionBgClass = isDarkMode ? 'bg-gray-900' : 'bg-white';
-    const textColorPrimary = isDarkMode ? 'text-white' : 'text-gray-800';
-    const textColorSecondary = isDarkMode ? 'text-gray-400' : 'text-gray-600';
-    const linkBorderColorClass = isDarkMode ? 'border-gray-700 text-gray-300' : 'border-gray-200 text-gray-600';
 
     return (
         <section
-            className={`py-24 ${sectionBgClass} transition-colors duration-300`}
+            className={`py-24 bg-gray-900 transition-colors duration-300`}
         >
             <div className="container mx-auto px-6 select-none">
                 <motion.div
@@ -45,12 +25,12 @@ export const Contact: React.FC = () => {
                     className="max-w-3xl mx-auto text-center"
                 >
                     <h2
-                        className={`text-4xl font-bold mb-8 ${textColorPrimary} transition-colors duration-300`}
+                        className={`text-4xl font-bold mb-8 text-white transition-colors duration-300`}
                     >
                         {t('contact.title')}
                     </h2>
                     <p
-                        className={`mb-12 ${textColorSecondary} transition-colors duration-300`}
+                        className={`mb-12 text-gray-400 transition-colors duration-300`}
                     >
                         {t('contact.subtitle')}
                     </p>
@@ -68,7 +48,7 @@ export const Contact: React.FC = () => {
                                 href="https://github.com/nacodeee"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors ${linkBorderColorClass}`}
+                                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors border-gray-700 text-gray-300`}
                             >
                                 <Github size={24} />
                             </a>
@@ -76,7 +56,7 @@ export const Contact: React.FC = () => {
                                 href="https://linkedin.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors ${linkBorderColorClass}`}
+                                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors border-gray-700 text-gray-300`}
                             >
                                 <Linkedin size={24} />
                             </a>
@@ -84,7 +64,7 @@ export const Contact: React.FC = () => {
                                 href="https://behance.net/nacode"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors ${linkBorderColorClass}`}
+                                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors border-gray-700 text-gray-300`}
                             >
                                 <FaBehance size={24} />
                             </a>

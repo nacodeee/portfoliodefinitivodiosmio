@@ -1,5 +1,5 @@
 // projects.tsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
@@ -71,35 +71,15 @@ export const Projects: React.FC = () => {
         triggerOnce: true,
         threshold: 0.1
     });
-    const [isDarkMode, setIsDarkMode] = useState(false);
-
-    useEffect(() => {
-        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-        setIsDarkMode(prefersDark);
-
-        const handleChange = (event: MediaQueryListEvent) => {
-            setIsDarkMode(event.matches);
-        };
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', handleChange);
-
-        return () => {
-            window.matchMedia('(prefers-color-scheme: dark)').removeEventListener('change', handleChange);
-        };
-    }, []);
-
-    const sectionBgClass = isDarkMode ? 'bg-gray-900' : 'bg-gray-50';
-    const titleTextColorClass = isDarkMode ? 'text-white' : 'text-gray-800';
-    const descriptionTextColorClass = isDarkMode ? 'text-gray-400' : 'text-gray-600';
-    const cardBgClass = isDarkMode ? 'bg-gray-800' : 'bg-white';
 
     return (
-        <section id="projects" className={`py-24 ${sectionBgClass} transition-colors duration-300 select-none`}>
+        <section id="projects" className={`py-24 bg-gray-900 transition-colors duration-300 select-none`}>
             <div className="container mx-auto px-6">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     ref={ref}
-                    className={`text-4xl font-bold text-center mb-16 ${titleTextColorClass} transition-colors duration-300`}
+                    className={`text-4xl font-bold text-center mb-16 text-white transition-colors duration-300`}
                 >
                     {t('projects.title')}
                 </motion.h2>
@@ -111,7 +91,7 @@ export const Projects: React.FC = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: index * 0.2 }}
-                            className={`rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300 ${cardBgClass}`}
+                            className={`rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300 bg-gray-800`}
                         >
                             <div className="relative overflow-hidden">
                                 <img
@@ -143,13 +123,13 @@ export const Projects: React.FC = () => {
                                 </div>
                             </div>
                             <div className="p-6">
-                                <h3 className={`text-xl font-semibold mb-2 ${titleTextColorClass} transition-colors duration-300 select-none`}>{t(project.titleKey)}</h3>
-                                <p className={`mb-4 ${descriptionTextColorClass} transition-colors duration-300 select-text`}>{t(project.descriptionKey)}</p>
+                                <h3 className={`text-xl font-semibold mb-2 text-white transition-colors duration-300 select-none`}>{t(project.titleKey)}</h3>
+                                <p className={`mb-4 text-gray-400 transition-colors duration-300 select-text`}>{t(project.descriptionKey)}</p>
                                 <div className="flex flex-wrap gap-2 select-none">
                                     {project.tags.map((tag, tagIndex) => (
                                         <span
                                             key={tagIndex}
-                                            className={`px-3 py-1 text-sm rounded-full ${isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-[#0099ff79] text-gray-600'}`}
+                                            className={`px-3 py-1 text-sm rounded-full bg-gray-700 text-gray-300`}
                                         >
                                             {tag}
                                         </span>
