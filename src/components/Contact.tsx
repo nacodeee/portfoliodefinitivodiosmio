@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { Mail, Github, Linkedin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'next-themes';
-import { FaBehance } from 'react-icons/fa';
+import { FaBehance } from "react-icons/fa";
 
 export const Contact: React.FC = () => {
   const { t } = useTranslation();
