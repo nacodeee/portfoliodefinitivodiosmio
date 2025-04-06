@@ -1,8 +1,11 @@
+// contact.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Mail, Github, Linkedin, Brush } from 'lucide-react';
+import { Mail, Github, Linkedin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'next-themes';
+import { FaBehance } from 'react-icons/fa';
 
 export const Contact: React.FC = () => {
   const { t } = useTranslation();
@@ -10,18 +13,33 @@ export const Contact: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1
   });
+  const { theme } = useTheme();
 
   return (
-    <section className="py-24 bg-white">
-      <div className="container mx-auto px-6">
+    <section
+      className={`py-24 ${
+        theme === 'dark' ? 'bg-gray-900' : 'bg-white'
+      } transition-colors duration-300`}
+    >
+      <div className="container mx-auto px-6 select-none"> {/* Added select-none to the container */}
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           className="max-w-3xl mx-auto text-center"
         >
-          <h2 className="text-4xl font-bold mb-8">{t('contact.title')}</h2>
-          <p className="text-gray-600 mb-12">
+          <h2
+            className={`text-4xl font-bold mb-8 ${
+              theme === 'dark' ? 'text-white' : 'text-gray-800'
+            } transition-colors duration-300`}
+          >
+            {t('contact.title')}
+          </h2>
+          <p
+            className={`text-gray-600 mb-12 ${
+              theme === 'dark' ? 'text-gray-400' : ''
+            } transition-colors duration-300`}
+          >
             {t('contact.subtitle')}
           </p>
 
@@ -38,7 +56,9 @@ export const Contact: React.FC = () => {
                 href="https://github.com/nacodeee"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border-2 border-gray-200 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors"
+                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors ${
+                  theme === 'dark' ? 'border-gray-700 text-gray-300' : 'border-gray-200 text-gray-600'
+                }`}
               >
                 <Github size={24} />
               </a>
@@ -46,7 +66,9 @@ export const Contact: React.FC = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border-2 border-gray-200 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors"
+                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors ${
+                  theme === 'dark' ? 'border-gray-700 text-gray-300' : 'border-gray-200 text-gray-600'
+                }`}
               >
                 <Linkedin size={24} />
               </a>
@@ -54,9 +76,11 @@ export const Contact: React.FC = () => {
                 href="https://behance.net/nacode"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-3 border-2 border-gray-200 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors"
+                className={`p-3 border-2 rounded-full hover:border-[#0099ff] hover:text-[#0099ff] transition-colors ${
+                  theme === 'dark' ? 'border-gray-700 text-gray-300' : 'border-gray-200 text-gray-600'
+                }`}
               >
-                <Brush size={24} />
+                <FaBehance size={24} />
               </a>
             </div>
           </div>

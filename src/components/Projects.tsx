@@ -1,8 +1,10 @@
+// projects.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'next-themes';
 
 const projects = [
   {
@@ -70,15 +72,16 @@ export const Projects: React.FC = () => {
     triggerOnce: true,
     threshold: 0.1
   });
+  const { theme } = useTheme();
 
   return (
-    <section id="projects" className="py-24 bg-gray-50">
+    <section id="projects" className={`py-24 ${theme === 'dark' ? 'bg-gray-900' : 'bg-gray-50'} transition-colors duration-300 select-none`}> {/* Added select-none to the section */}
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           ref={ref}
-          className="text-4xl font-bold text-center mb-16"
+          className={`text-4xl font-bold text-center mb-16 ${theme === 'dark' ? 'text-white' : 'text-gray-800'} transition-colors duration-300`}
         >
           {t('projects.title')}
         </motion.h2>
@@ -90,7 +93,7 @@ export const Projects: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
+              className={`bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-shadow duration-300 ${theme === 'dark' ? 'bg-gray-800' : 'bg-white'}`}
             >
               <div className="relative overflow-hidden">
                 <img
@@ -104,7 +107,7 @@ export const Projects: React.FC = () => {
                       href={project.links.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
+                      className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors text-gray-800"
                     >
                       <ExternalLink size={20} />
                     </a>
@@ -114,7 +117,7 @@ export const Projects: React.FC = () => {
                       href={project.links.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors"
+                      className="p-2 bg-white rounded-full hover:bg-[#0099ff] hover:text-white transition-colors text-gray-800"
                     >
                       <Github size={20} />
                     </a>
@@ -122,13 +125,13 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{t(project.titleKey)}</h3>
-                <p className="text-gray-600 mb-4">{t(project.descriptionKey)}</p>
-                <div className="flex flex-wrap gap-2">
+                <h3 className={`text-xl font-semibold mb-2 ${theme === 'dark' ? 'text-white' : 'text-gray-800'} transition-colors duration-300 select-none`}>{t(project.titleKey)}</h3> {/* Added select-none */}
+                <p className={`text-gray-600 mb-4 ${theme === 'dark' ? 'text-gray-400' : ''} transition-colors duration-300 select-text`}>{t(project.descriptionKey)}</p> {/* Added select-text */}
+                <div className="flex flex-wrap gap-2 select-none"> {/* Added select-none */}
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 bg-[#0099ff79] text-sm rounded-full text-gray-600"
+                      className={`px-3 py-1 text-sm rounded-full ${theme === 'dark' ? 'bg-gray-700 text-gray-300' : 'bg-[#0099ff79] text-gray-600'}`}
                     >
                       {tag}
                     </span>

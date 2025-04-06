@@ -11,7 +11,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-white to-gray-50">
+    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 select-none">
       {/* Efecto de onda más suave */}
       <svg className="absolute w-0 h-0">
         <filter id="wave">
@@ -21,7 +21,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
             numOctaves="2"
             result="turbulence"
           >
-            <animate 
+            <animate
               attributeName="baseFrequency"
               values="0.006 0.02; 0.008 0.03; 0.006 0.02"
               dur="5s"
@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-6xl md:text-8xl font-bold mb-6 relative"
+          className="text-6xl md:text-8xl font-bold mb-6 relative text-gray-900 dark:text-white"
         >
           <motion.span
             className="bg-clip-text text-transparent"
@@ -72,7 +72,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-gray-600 mb-12"
+          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12"
         >
           {t('hero.subtitle')}
         </motion.div>
@@ -84,7 +84,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
           className="flex flex-col md:flex-row gap-6 justify-center"
         >
           <a
-            href="https://drive.google.com/file/d/11E_SEythMhmm0Z9zLgBrG5WZepxgjXaH/view?usp=sharing"
+            href="https://drive.google.com/file/d/1oDTPb3IWjTp5p8G1IPwVEaSU51n9u_I-/view?usp=sharing"
             target="_blank"
             className="inline-flex items-center gap-2 bg-[#0099ff] text-white px-8 py-3 rounded-full hover:bg-[#0077cc] transition-colors"
           >
@@ -106,7 +106,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToProjects }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           onClick={onScrollToProjects}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-[#0099ff] animate-bounce"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-[#0099ff] animate-bounce dark:text-[#00b0ff]"
         >
           <ChevronDown size={32} />
         </motion.button>

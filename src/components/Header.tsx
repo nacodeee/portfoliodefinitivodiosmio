@@ -1,7 +1,9 @@
+// header.tsx
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, FolderGit2, Info, User2, Mail } from 'lucide-react';
+import { Menu, X, Home, FolderGit2, Info, User2, Mail, Sun, Moon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useTheme } from 'next-themes';
 
 interface HeaderProps {
   onSectionClick: (section: string) => void;
@@ -21,14 +23,17 @@ const languages: LanguageOption[] = [
 
 export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
   const { t, i18n } = useTranslation();
+  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [currentLang, setCurrentLang] = useState(
     languages.find(lang => lang.code === i18n.language) || languages[0]
   );
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -50,13 +55,22 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
     setIsLangMenuOpen(false);
   };
 
-  // Define el color base (ajústalo según el color principal de tu página)
-  const baseColor = '#09f'; // Ejemplo de un gris claro
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
+  const baseColor = '#09f';
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg' : 'bg-white/30'
+        isScrolled
+          ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg'
+          : 'bg-white/30 dark:bg-gray-900/30'
       }`}
     >
       <nav className="container mx-auto px-6 py-4">
@@ -64,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold"
+            className="text-2xl font-bold select-none" // Added select-none
             style={{
               background: `linear-gradient(to bottom, #09f, ${baseColor})`,
               WebkitBackgroundClip: 'text',
@@ -75,23 +89,32 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           </motion.div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 select-none"> {/* Added select-none */}
             {sections.map((section) => (
               <button
                 key={section.name}
                 onClick={() => onSectionClick(section.name)}
-                className="flex items-center gap-2 text-gray-700 hover:text-[#0099ff] transition-colors"
+                className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
               >
                 {section.icon}
                 {section.name}
               </button>
             ))}
 
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
             {/* Language Selector */}
             <div className="relative">
               <button
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
-                className="flex items-center gap-2 text-gray-700 hover:text-[#0099ff] transition-colors"
+                className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
               >
                 <img
                   src={currentLang.flag}
@@ -105,13 +128,13 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className="absolute right-0 mt-2 py-2 w-40 bg-white rounded-lg shadow-xl"
+                  className="absolute right-0 mt-2 py-2 w-40 bg-white dark:bg-gray-800 rounded-lg shadow-xl select-none" // Added select-none
                 >
                   {languages.map((lang) => (
                     <button
                       key={lang.code}
                       onClick={() => handleLanguageChange(lang)}
-                      className="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-gray-50 hover:text-[#0099ff] transition-colors"
+                      className="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
                     >
                       <img
                         src={lang.flag}
@@ -127,12 +150,23 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-4 select-none"> {/* Added select-none */}
+            {/* Theme Toggle Button (Mobile) */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
+            <button
+              className="text-gray-700 dark:text-gray-300"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
@@ -140,7 +174,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="md:hidden mt-4 space-y-4"
+            className="md:hidden mt-4 space-y-4 select-none" // Added select-none
           >
             {sections.map((section) => (
               <button
@@ -149,7 +183,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                   onSectionClick(section.name);
                   setIsMenuOpen(false);
                 }}
-                className="flex items-center gap-2 w-full text-left text-gray-700 hover:text-[#0099ff] py-2 transition-colors"
+                className="flex items-center gap-2 w-full text-left text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] py-2 transition-colors"
               >
                 {section.icon}
                 {section.name}
@@ -157,7 +191,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
             ))}
 
             {/* Mobile Language Selector */}
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
@@ -165,7 +199,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                     handleLanguageChange(lang);
                     setIsMenuOpen(false);
                   }}
-                  className="flex items-center gap-2 w-full px-2 py-2 text-left text-gray-700 hover:text-[#0099ff] transition-colors"
+                  className="flex items-center gap-2 w-full px-2 py-2 text-left text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
                 >
                   <img
                     src={lang.flag}
