@@ -30,7 +30,7 @@ export const Contact: React.FC = () => {
 
     const sectionBgClass = isDarkMode ? 'bg-gray-900' : 'bg-white';
     const textColorPrimary = isDarkMode ? 'text-white' : 'text-gray-800';
-    const textColorSecondary = isDarkMode ? (isDarkMode ? 'text-gray-400' : 'text-gray-600') : 'text-gray-600';
+    const textColorSecondary = isDarkMode ? 'text-gray-400' : 'text-gray-600';
     const linkBorderColorClass = isDarkMode ? 'border-gray-700 text-gray-300' : 'border-gray-200 text-gray-600';
 
     return (

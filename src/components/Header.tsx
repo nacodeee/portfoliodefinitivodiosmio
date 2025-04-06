@@ -101,14 +101,14 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
               </button>
             ))}
 
-            {/* Theme Toggle Button */}
+            {/* Theme Toggle Button 
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+            </button> */}
 
             {/* Language Selector */}
             <div className="relative">
