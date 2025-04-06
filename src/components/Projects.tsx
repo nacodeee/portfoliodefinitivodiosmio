@@ -77,7 +77,6 @@ export const Projects: React.FC = () => {
         const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         setIsDarkMode(prefersDark);
 
-        // Opcional: Escuchar cambios en la preferencia del sistema
         const handleChange = (event: MediaQueryListEvent) => {
             setIsDarkMode(event.matches);
         };
