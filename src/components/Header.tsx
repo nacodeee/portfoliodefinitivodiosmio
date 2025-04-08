@@ -149,26 +149,6 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4 select-none"> {/* Added select-none */}
-            {/* Theme Toggle Button (Mobile) */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-
-            <button
-              className="text-gray-700 dark:text-gray-300"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
-
         {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div
