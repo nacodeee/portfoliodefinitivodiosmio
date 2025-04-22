@@ -1,9 +1,8 @@
 // header.tsx
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Home, FolderGit2, Info, User2, Mail, Sun, Moon } from 'lucide-react';
+import { Home, FolderGit2, Info, User2, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { useTheme } from 'next-themes';
 
 interface HeaderProps {
   onSectionClick: (section: string) => void;
@@ -23,7 +22,6 @@ const languages: LanguageOption[] = [
 
 export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
   const { t, i18n } = useTranslation();
-  const { theme, setTheme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
@@ -55,10 +53,6 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
     setIsLangMenuOpen(false);
   };
 
-  const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
-
   if (!mounted) {
     return null;
   }
@@ -87,6 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           >
             nacode
           </motion.div>
+          
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 select-none"> {/* Added select-none */}
@@ -149,6 +144,7 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
             </div>
           </div>
 
+        </div>
         {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div
