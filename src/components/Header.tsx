@@ -81,7 +81,6 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
           >
             nacode
           </motion.div>
-          
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8 select-none"> {/* Added select-none */}
@@ -95,15 +94,6 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
                 {section.name}
               </button>
             ))}
-
-            {/* Theme Toggle Button 
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:text-[#0099ff] dark:hover:text-[#0099ff] transition-colors"
-              aria-label="Toggle theme"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </button> */}
 
             {/* Language Selector */}
             <div className="relative">
@@ -143,8 +133,8 @@ export const Header: React.FC<HeaderProps> = ({ onSectionClick }) => {
               )}
             </div>
           </div>
-
         </div>
+
         {/* Mobile Menu */}
         {isMenuOpen && (
           <motion.div

@@ -67,7 +67,7 @@ export const Skills: React.FC = () => {
     return (
         <section
             className={`py-16 ${
-                theme === 'dark' ? 'bg-gray-900' : 'bg-white'
+                theme === 'dark' ? 'bg-gray-900' : 'bg-gray-900'
             } transition-colors duration-300 select-none`}
         >
             <div className="container mx-auto px-6">
