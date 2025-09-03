@@ -76,7 +76,7 @@ export const Skills: React.FC = () => {
                     animate={inView ? { opacity: 1, y: 0 } : {}}
                     ref={ref}
                     className={`text-3xl font-bold text-center mb-10 ${
-                        theme === 'dark' ? 'text-white' : 'text-gray-800'
+                        theme === 'dark' ? 'text-white' : 'text-white'
                     } transition-colors duration-300`}
                 >
                     {t('skills.title')}
@@ -90,14 +90,14 @@ export const Skills: React.FC = () => {
                             animate={inView ? { opacity: 1, y: 0 } : {}}
                             transition={{ delay: 0.2 + index * 0.2 }}
                             className={`p-4 rounded-xl transition-colors flex flex-col ${
-                                theme === 'dark' ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-100 hover:bg-[#F0F0F0]'
+                                theme === 'dark' ? 'bg-gray-800 hover:bg-gray-700' : 'bg-gray-800 hover:bg-gray-700'
                             }`}
                         >
                             <div className="flex items-center gap-3 mb-4">
                                 {group.icon}
                                 <h3
                                     className={`text-lg font-semibold ${
-                                        theme === 'dark' ? 'text-white' : 'text-gray-800'
+                                        theme === 'dark' ? 'text-white' : 'text-white'
                                     } transition-colors duration-300`}
                                 >
                                     {t(group.category)}
@@ -108,7 +108,7 @@ export const Skills: React.FC = () => {
                                     <div
                                         key={skillIndex}
                                         className={`rounded-md shadow-sm px-3 py-2 flex items-center gap-2 text-sm transition-colors ${
-                                            theme === 'dark' ? 'bg-gray-900 text-gray-300' : 'bg-white text-gray-700'
+                                            theme === 'dark' ? 'bg-gray-900 text-gray-300' : 'bg-gray-900 text-gray-300'
                                         }`}
                                     >
                                         {skill?.customIcon ?? skill.icon}
